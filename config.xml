@@ -15,4 +15,8 @@
         Ivan Eidemiller
     </author>
 
+    <access origin="http://rally.co.ua" />
+
+    <plugin name="Battery" value="org.apache.cordova.BatteryListener" />
+
 </widget>
