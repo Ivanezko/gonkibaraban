@@ -1,1 +1,17 @@
 /* Put your custom CSS here */
+.gn-number {
+    width: 130px;
+}
+
+.gn-number-cnt .ui-btn-text {
+    font-size:18pt;
+}
+
+.gn-submit  .ui-btn-text {
+    font-size:18pt;
+}
+
+.gn-inputtext {
+    text-align: center;
+    font-size:18pt;
+}
