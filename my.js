@@ -39,17 +39,27 @@ $().ready(function(){
     // my events
 
     $('#gnSubmit').on('taphold', function(e) {
-        log('taphold submit');
-        var info = {result:555, point: 1, mode:'start'};
+        var d = $('#gnInputtext').val();
+        var r = $('#round').val();
+        var m = $('#mode').val();
+
+        if (m == 'f' && !/\d\d-\d\d\d\d\d\d\d\d/.test(d)) {
+            alert('Ошибка ввода1!'); return;
+        }
+
+        if ((m == 's' || m == 'k') && !/\d\d-\d\d\d\d/.test(d)) {
+            alert('Ошибка ввода2!'); return;
+        }
+
+        var info = {result:d, point: r, mode:m};
         $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
             .done(function(data) {
-                log('request ok');
-                console.log(data);
-                log(data);
+                log(m + r + ' ' + d, 'data');
+                $('#gnInputtext').val('');
                 var items = [];
 
                 $.each(data, function(key, val) {
-                    log(key + ':' + val);
+                    //log(key + ':' + val);
                 });
 
             })
@@ -59,8 +69,23 @@ $().ready(function(){
             });
     });
 
-    $('.gn-clear').on('tap', function(e) {
-        log('click clear');
+    $('#mode').on('change', function() {
+        if ($(this).val() == 'f') {
+            log('вводим финиши');
+            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
+        }
+        if ($(this).val() == 's') {
+            log('вводим старты');
+            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+        }
+        if ($(this).val() == 'k') {
+            log('вводим КВ');
+            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+        }
+    });
+
+    $('#round').on('change', function() {
+        log('вводим для круга ' + $(this).val());
     });
 
 });

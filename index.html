@@ -36,26 +36,50 @@
         <!-- Home -->
         <div data-role="page" id="mainPage" data-theme="a">
             <div data-role="header">
-                <a id="gnClear" data-role="button" href="#settingsPage" class="ui-btn-right gn-clear">
-                    настройки
-                </a>
-                <a id="gnHistory" data-role="button" target="_blank" href="#historyPage" class="ui-btn-left gn-history">
-                    история
-                </a>
-                <h3>
-                    RallyDrum 1.1.2
-                </h3>
+                <a id="gnSettings" data-role="button" href="#settingsPage" class="ui-btn-right gn-clear">настройки</a>
+                <!--<a id="gnHistory" data-role="button" target="_blank" href="#historyPage" class="ui-btn-left gn-history">история</a>-->
+                <h3>RallyDrum 1.3</h3>
             </div>
             <div data-role="content">
-                <input type="button" value="проверить соединение с интернетом" onclick="check_network()">
 
-                <input name="" id="gnInputtext" placeholder="ББ-ЧЧММССмс" value="" type="tel" class="gn-inputtext">
+                <input name="" id="gnInputtext" placeholder="ББ-ЧЧММ" value="" type="tel" class="gn-inputtext">
 
-                <a id="gnSubmit" data-role="button" href="#page1" data-icon="plus" data-iconpos="left" class="gn-submit">
+                <a id="gnSubmit" data-role="button" href="#" data-icon="plus" data-iconpos="left" class="gn-submit">
                     отправить
                 </a>
 
                 <div id="log"></div>
+
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div data-role="page" id="settingsPage" data-theme="a">
+            <div data-role="header">
+
+                <a data-role="button" href="#mainPage" class="ui-btn-left gn-history">назад</a>
+
+                <h3>Настройки</h3>
+            </div>
+            <div data-role="content">
+
+                <label for="round" class="ui-select">Круг:</label>
+                <select id="round" name="">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+                <label for="mode" class="ui-select">Режим:</label>
+                <select id="mode" name="">
+                    <option value="s" selected>Старт</option>
+                    <option value="f">Финиш</option>
+                    <option value="k">КВ</option>
+                </select>
+
 
             </div>
         </div>
