@@ -41,7 +41,7 @@ $().ready(function(){
 
     // my events
 
-    $('.gn-submit').on('click', function(e) {
+    $('#gnSubmit').on('click', function(e) {
         log('click submit');
         $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {
             log('json retrieved');
