@@ -19,5 +19,6 @@
 
     <plugin name="Battery" value="org.apache.cordova.BatteryListener" />
     <plugin name="Device" value="org.apache.cordova.Device" />
+    <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
 
 </widget>
