@@ -41,6 +41,10 @@ $().ready(function(){
 
     // my events
 
+    Hammer($('#gnSubmit')).on("tap", function(event) {
+        console.log('hammer send!');
+    });
+
     $('#gnSubmit').on('click', function(e) {
         log('click submit');
         $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {
