@@ -65,4 +65,5 @@ $().ready(function(){
 
 function log(string) {
     $('#log').append('<p>'+string+'</p>');
+    console.log(string);
 }
