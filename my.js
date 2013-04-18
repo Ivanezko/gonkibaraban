@@ -1,28 +1,28 @@
 // Put your custom code here
 
 $().ready(function(){
-    log('DOM ready');
+    log('приложение запущено');
 
     document.addEventListener("deviceready", function() {
-        log('device ready');
+        log('устройство готово');
         document.addEventListener("online", function() {
-            log('online!');
+            log('есть интернет');
         }, false);
 
         document.addEventListener("offline", function() {
-            log('offline!');
+            log('нет интернета');
         }, false);
 
         document.addEventListener("pause", function() {
-            log('paused!');
+            //log('paused!');
         }, false);
 
         document.addEventListener("resume", function() {
-            log('resume!');
+            //log('resume!');
         }, false);
 
         document.addEventListener("batterycritical", function() {
-            log('batterycritical!');
+            log('батарея разряжена');
         }, false);
 
         document.addEventListener("batterystatus", function(info) {
@@ -42,16 +42,18 @@ $().ready(function(){
         var d = $('#gnInputtext').val();
         var r = $('#round').val();
         var m = $('#mode').val();
+        var m = $('#mode').val();
+        var uuid = device.uuid;
 
         if (m == 'f' && !/\d\d-\d\d\d\d\d\d\d\d/.test(d)) {
-            alert('Ошибка ввода1!'); return;
+            alert('Ошибка ввода!'); return;
         }
 
         if ((m == 's' || m == 'k') && !/\d\d-\d\d\d\d/.test(d)) {
-            alert('Ошибка ввода2!'); return;
+            alert('Ошибка ввода!'); return;
         }
 
-        var info = {result:d, point: r, mode:m};
+        var info = {result:d, point: r, mode:m, uuid:uuid};
         $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
             .done(function(data) {
                 log(m + r + ' ' + d, 'data');
