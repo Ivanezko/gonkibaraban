@@ -3,7 +3,6 @@
 $().ready(function(){
     log('DOM ready');
 
-/*
     document.addEventListener("deviceready", function() {
         log('device ready');
         document.addEventListener("online", function() {
@@ -31,7 +30,7 @@ $().ready(function(){
             log('batterystatus!'+info.isPlugged);
         }, false);
 
-    }, false);*/
+    }, false);
 
 
 
@@ -41,19 +40,20 @@ $().ready(function(){
 
     $('#gnSubmit').on('taphold', function(e) {
         log('taphold submit');
-        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', function(data) {
-            log('json retrieved');
-            var items = [];
+        var data = {result:555, point: 1, mode:'start'};
+        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', data)
+            .done(function(data) {
+                log('request ok');
+                log(data);
+                var items = [];
 
-            $.each(data, function(key, val) {
-                items.push('<li id="' + key + '">' + val + '</li>');
+                $.each(data, function(key, val) {
+                    log(key + ':' + val);
+                });
+
+            }).fail(function() {
+                log('request failed!');
             });
-
-            $('<ul/>', {
-                'class': 'my-new-list',
-                html: items.join('')
-            }).appendTo('body');
-        });
     });
 
     $('.gn-clear').on('tap', function(e) {
@@ -62,8 +62,12 @@ $().ready(function(){
 
 });
 
-function log(string) {
-    $('#log').append('<p>'+string+'</p>');
+function log(string, type) {
+    if (typeof type != undefined)
+        $('#log').prepend('<p class="log log-data">'+string+'</p>');
+    else
+        $('#log').prepend('<p class="log">'+string+'</p>');
+
     console.log(string);
 }
 

@@ -12,3 +12,7 @@
 .ui-input-text {
     margin: 0 !important;
 }
+
+.log-data {
+    font-weight: 700;
+}
