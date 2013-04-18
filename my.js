@@ -40,10 +40,11 @@ $().ready(function(){
 
     $('#gnSubmit').on('taphold', function(e) {
         log('taphold submit');
-        var data = {result:555, point: 1, mode:'start'};
-        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', data)
+        var info = {result:555, point: 1, mode:'start'};
+        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
             .done(function(data) {
                 log('request ok');
+                console.log(data);
                 log(data);
                 var items = [];
 
@@ -51,8 +52,10 @@ $().ready(function(){
                     log(key + ':' + val);
                 });
 
-            }).fail(function() {
-                log('request failed!');
+            })
+            .fail(function(jqxhr, textStatus, error) {
+                var err = textStatus + ', ' + error;
+                log( "Request Failed: " + err);
             });
     });
 
