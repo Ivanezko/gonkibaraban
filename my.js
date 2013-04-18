@@ -3,6 +3,7 @@
 $().ready(function(){
     log('DOM ready');
     document.addEventListener("deviceready", function() {
+        log('device ready');
         document.addEventListener("online", function() {
             log('online!');
         }, false);
