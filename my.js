@@ -31,13 +31,16 @@ $().ready(function(){
 
     }, false);
 
+    log('device name:'+window.device.name);
+
+    $('#gnInputtext').focus();
+
+    $('#mainPage').on('click', function(e) {
+        $('#gnInputtext').focus();
+    });
+
     // my events
-    $('.gn-number').on('click', function(e) {
-        log('click number:'+$(this).text());
-    });
-    $('.gn-space').on('click', function(e) {
-        log('click space');
-    });
+
     $('.gn-submit').on('click', function(e) {
         log('click submit');
         $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {

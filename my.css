@@ -16,6 +16,10 @@
 }
 
 .gn-inputtext {
-    text-align: center;
-    font-size:32pt;
+    /*text-align: center;*/
+    font-size:26pt !important;
+}
+
+.ui-input-text {
+    margin: 0 !important;
 }

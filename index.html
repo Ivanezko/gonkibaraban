@@ -33,12 +33,12 @@
     </head>
     <body>
         <!-- Home -->
-        <div data-role="page" id="page1" data-theme="a">
+        <div data-role="page" id="mainPage" data-theme="a">
             <div data-role="header">
-                <a id="gnClear" data-role="button" href="#page1" class="ui-btn-right gn-clear">
-                    очистить
+                <a id="gnClear" data-role="button" href="#settingsPage" class="ui-btn-right gn-clear">
+                    настройки
                 </a>
-                <a id="gnHistory" data-role="button" target="_blank" href="#page1" class="ui-btn-left gn-history">
+                <a id="gnHistory" data-role="button" target="_blank" href="#historyPage" class="ui-btn-left gn-history">
                     история
                 </a>
                 <h3>
@@ -47,52 +47,7 @@
             </div>
             <div data-role="content">
 
-                <div id="gnInputText" class="gn-inputtext">
-                    25 12131415
-                </div>
-
-                <a id="gnSpace" data-role="button" href="#page1" class="gn-space">
-                    пробел
-                </a>
-
-                <div data-role="fieldcontain" data-cid="textinput1" class="codiqa-control ui-field-contain ui-body ui-br" style="">
-                    <input name="" id="textinput1" placeholder="" value="" type="tel" class="ui-input-text ui-body-a ui-corner-all ui-shadow-inset">
-                </div>
-
-                <div class="gn-number-cnt">
-
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        1
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        2
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        3
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        4
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        5
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        6
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        7
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        8
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number">
-                        9
-                    </a>
-                    <a data-role="button" data-inline="true" href="#page1" class="gn-number gn-number-zero">
-                        0
-                    </a>
-
-                </div>
+                <input name="" id="gnInputtext" placeholder="ББ-ЧЧММССмс" value="" type="tel" class="gn-inputtext">
 
                 <a id="gnSubmit" data-role="button" href="#page1" data-icon="plus" data-iconpos="left" class="gn-submit">
                     отправить
