@@ -31,7 +31,7 @@ $().ready(function(){
 
     }, false);
 
-    log('device name:'+window.device.name);
+    //log('device name:'+window.device.name);
 
     $('#gnInputtext').focus();
 
@@ -45,7 +45,7 @@ $().ready(function(){
         console.log('hammer send!');
     });
 
-    $('#gnSubmit').on('tap', function(e) {
+    $('#gnSubmit').on('taphold', function(e) {
         log('tap submit');
         $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {
             log('json retrieved');
