@@ -56,13 +56,12 @@ $().ready(function(){
         var info = {result:d, point: r, mode:m, uuid:uuid};
         $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
             .done(function(data) {
-                log(m + r + ' ' + d, 'data');
-                $('#gnInputtext').val('');
-                var items = [];
-
-                $.each(data, function(key, val) {
-                    //log(key + ':' + val);
-                });
+                if (data.result) {
+                    log(m + r + ' ' + d, 'data');
+                    $('#gnInputtext').val('');
+                } else {
+                    alert(data.error);
+                }
 
             })
             .fail(function(jqxhr, textStatus, error) {
@@ -73,15 +72,15 @@ $().ready(function(){
 
     $('#mode').on('change', function() {
         if ($(this).val() == 'f') {
-            log('вводим финиши');
+            log('==== вводим финиши');
             $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
         }
         if ($(this).val() == 's') {
-            log('вводим старты');
+            log('==== вводим старты');
             $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
         }
         if ($(this).val() == 'k') {
-            log('вводим КВ');
+            log('==== вводим КВ');
             $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
         }
     });
