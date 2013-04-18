@@ -35,19 +35,15 @@ $().ready(function(){
 
     $('#gnInputtext').focus();
 
-    $('#mainPage').on('click', function(e) {
+    $('#mainPage').on('tap', function(e) {
         $('#gnInputtext').focus();
     });
 
     // my events
 
-    Hammer($('#gnSubmit')).on("tap", function(event) {
-        console.log('hammer send!');
-    });
-
     $('#gnSubmit').on('taphold', function(e) {
-        log('tap submit');
-        $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {
+        log('taphold submit');
+        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', function(data) {
             log('json retrieved');
             var items = [];
 
@@ -61,7 +57,8 @@ $().ready(function(){
             }).appendTo('body');
         });
     });
-    $('.gn-clear').on('click', function(e) {
+
+    $('.gn-clear').on('tap', function(e) {
         log('click clear');
     });
 
