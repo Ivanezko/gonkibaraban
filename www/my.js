@@ -67,3 +67,15 @@ function log(string) {
     console.log(string);
 }
 
+function check_network() {
+    var networkState = navigator.network.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Неизвестное соединение';
+    states[Connection.ETHERNET] = 'кабельное соединение';
+    states[Connection.WIFI]     = 'WiFi соединение';
+    states[Connection.CELL_2G]  = '2G соединение';
+    states[Connection.CELL_3G]  = 'Cell 3G соединение';
+    states[Connection.CELL_4G]  = 'Cell 4G соединение';
+    states[Connection.NONE]     = 'Нет соединения с интернетом';
+    confirm('Вы подключены через:\n ' + states[networkState]);
+}
