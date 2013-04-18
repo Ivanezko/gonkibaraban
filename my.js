@@ -45,8 +45,8 @@ $().ready(function(){
         console.log('hammer send!');
     });
 
-    $('#gnSubmit').on('click', function(e) {
-        log('click submit');
+    $('#gnSubmit').on('tap', function(e) {
+        log('tap submit');
         $.getJSON('http://rally.co.ua/rallies/21/site/crew', function(data) {
             log('json retrieved');
             var items = [];
