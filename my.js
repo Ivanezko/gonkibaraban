@@ -45,11 +45,11 @@ $().ready(function(){
         var m = $('#mode').val();
         var uuid = device.uuid;
 
-        if (m == 'f' && !/\d\d-\d\d\d\d\d\d\d\d/.test(d)) {
+        if (m == 'f' && !/\d\d[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
-        if ((m == 's' || m == 'k') && !/\d\d-\d\d\d\d/.test(d)) {
+        if ((m == 's' || m == 'k') && !/\d\d[^\d]\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
