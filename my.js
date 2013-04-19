@@ -36,7 +36,7 @@ $().ready(function(){
 
     //log('device name:'+window.device.name);
 
-    // my events
+    // my events asdsa
 
     $('#gnSubmit').on('taphold', function(e) {
         var d = $('#gnInputtext').val();
