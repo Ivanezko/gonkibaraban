@@ -42,7 +42,6 @@ $().ready(function(){
         var d = $('#gnInputtext').val();
         var r = $('#round').val();
         var m = $('#mode').val();
-        var m = $('#mode').val();
         var uuid = device.uuid;
 
         if (m == 'f' && !/\d\d[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
