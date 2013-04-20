@@ -49,7 +49,7 @@ $().ready(function(){
             alert('Ошибка ввода!'); return;
         }
 
-        if ((m == 's' || m == 'k') && !/\d+[^\d]\d\d\d\d/.test(d)) {
+        if ((m == 's' || m == 'kin' || m == 'kout') && !/\d+[^\d]\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
@@ -79,14 +79,18 @@ $().ready(function(){
             log('==== вводим старты');
             $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
         }
-        if ($(this).val() == 'k') {
-            log('==== вводим КВ');
+        if ($(this).val() == 'kin') {
+            log('==== вводим КВ вход');
+            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+        }
+        if ($(this).val() == 'kout') {
+            log('==== вводим КВ вЫход');
             $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
         }
     });
 
     $('#round').on('change', function() {
-        log('вводим для круга ' + $(this).val());
+        log('======== вводим для круга ' + $(this).val());
     });
 
 });
