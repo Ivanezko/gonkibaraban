@@ -1,16 +1,41 @@
 // Put your custom code here
 
+var uuid = document.location.hash.replace('#','');
+var mode = '';
 $().ready(function(){
     log('приложение запущено');
 
+    var auth_interval = 10000;
+
+    function auth() {
+        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', {act:'auth',uuid:uuid})
+            .done(function(data) {
+                $('#gnPname').html(data.n);
+                mode = data.m;
+                if (mode == 'finish') {
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
+                }
+                if (mode == 'start') {
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+                }
+                if (mode == 'kv') {
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+                }
+            });
+    }
+
+    auth();
+    setInterval(auth, auth_interval);
+
     document.addEventListener("deviceready", function() {
         log('устройство готово');
+        if (typeof device != 'undefined') uuid = device.uuid;
         document.addEventListener("online", function() {
-            log('есть интернет');
+            log('есть интернет! :)');
         }, false);
 
         document.addEventListener("offline", function() {
-            log('нет интернета');
+            log('нет интернета :(');
         }, false);
 
         document.addEventListener("pause", function() {
@@ -40,24 +65,26 @@ $().ready(function(){
 
     $('#gnSubmit').on('taphold', function(e) {
         var d = $('#gnInputtext').val();
-        var r = $('#round').val();
-        var m = $('#mode').val();
-        var uuid = 'browser';
-        if (typeof device != 'undefined') uuid = device.uuid;
 
-        if (m == 'f' && !/\d+[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
+        if (mode == 'finish' && !/\d+[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
-        if ((m == 's' || m == 'kin' || m == 'kout') && !/\d+[^\d]\d\d\d\d/.test(d)) {
+        if ((mode == 'start') && !/\d+[^\d]\d\d\d\d[^\d]?/.test(d)) {
+            alert('Ошибка ввода!'+mode); return;
+        }
+        if ((mode == 'kv') && !/\d+[^\d]\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
-        var info = {result:d, point: r, mode:m, uuid:uuid};
+        var info = {result:d, uuid:uuid};
+        if (mode == 'start') {
+            info.f = $('#toggleswitch1').val();
+        }
         $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
-                    log(m + r + ' ' + d, 'data');
+                    log(data.result, 'data');
                     $('#gnInputtext').val('');
                 } else {
                     alert(data.error);
@@ -66,31 +93,8 @@ $().ready(function(){
             })
             .fail(function(jqxhr, textStatus, error) {
                 var err = textStatus + ', ' + error;
-                log( "Request Failed: " + err);
+                log( "запрос не завершен: " + err);
             });
-    });
-
-    $('#mode').on('change', function() {
-        if ($(this).val() == 'f') {
-            log('==== вводим финиши');
-            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
-        }
-        if ($(this).val() == 's') {
-            log('==== вводим старты');
-            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
-        }
-        if ($(this).val() == 'kin') {
-            log('==== вводим КВ вход');
-            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
-        }
-        if ($(this).val() == 'kout') {
-            log('==== вводим КВ вЫход');
-            $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
-        }
-    });
-
-    $('#round').on('change', function() {
-        log('======== вводим для круга ' + $(this).val());
     });
 
 });

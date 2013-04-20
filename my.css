@@ -16,3 +16,16 @@
 .log-data {
     font-weight: 700;
 }
+
+.gn-falstart .ui-slider {
+    width:100% !important;
+}
+
+.gnFalstart {
+    display:none;
+}
+
+.gn-pname {
+    width:100%;
+    text-align: center;
+}
