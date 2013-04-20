@@ -42,7 +42,8 @@ $().ready(function(){
         var d = $('#gnInputtext').val();
         var r = $('#round').val();
         var m = $('#mode').val();
-        var uuid = device.uuid;
+        var uuid = 'browser';
+        if (typeof device != 'undefined') uuid = device.uuid;
 
         if (m == 'f' && !/\d+[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
             alert('Ошибка ввода!'); return;
