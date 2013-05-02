@@ -8,9 +8,10 @@ $().ready(function(){
     var auth_interval = 10000;
 
     function auth() {
-        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', {act:'auth',uuid:uuid})
+        $.getJSON('http://rally.co.ua/rallies/22/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
+                $('#gnInputtext').css('font-size','34px');
                 mode = data.m;
                 if (mode == 'finish') {
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
@@ -20,6 +21,10 @@ $().ready(function(){
                 }
                 if (mode == 'kv') {
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
+                }
+                if (mode == 'full') {
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММ-ЧЧММССМС-ЧЧММ');
+                    $('#gnInputtext').css('font-size','15px');
                 }
             });
     }
@@ -66,22 +71,21 @@ $().ready(function(){
     $('#gnSubmit').on('taphold', function(e) {
         var d = $('#gnInputtext').val();
 
-        if (mode == 'finish' && !/\d+[^\d]\d\d\d\d\d\d\d\d/.test(d)) {
+        if (mode == 'finish' && !/\d{1,3}[^\d]\d{8}/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
-
-        if ((mode == 'start') && !/\d+[^\d]\d\d\d\d[^\d]?/.test(d)) {
+        if ((mode == 'start') && !/\d{1,3}[^\d]\d{4}[^\d]?/.test(d)) {
             alert('Ошибка ввода!'+mode); return;
         }
-        if ((mode == 'kv') && !/\d+[^\d]\d\d\d\d/.test(d)) {
+        if ((mode == 'kv') && !/\d{1,3}[^\d]\d{4}/.test(d)) {
+            alert('Ошибка ввода!'); return;
+        }
+        if ((mode == 'full') && !/\d{1,3}[^\d]\d{4}[^\d]\d{4}[^\d]?[^\d]\d{8}[^\d]\d{4}/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
         var info = {result:d, uuid:uuid};
-        if (mode == 'start') {
-            info.f = $('#toggleswitch1').val();
-        }
-        $.getJSON('http://rally.co.ua/rallies/21/site/mobileinput', info)
+        $.getJSON('http://rally.co.ua/rallies/22/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
                     log(data.result, 'data');
