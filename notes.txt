@@ -2,7 +2,8 @@
 http://jsconsole.com/?%3Alisten%2027D6E36C-D030-48C9-831A-5A53F8FEE3D0
 
 phonegap:
-https://build.phonegap.com/apps/372905/builds
-
+https://build.phonegap.com/apps/389450/builds
 
 http://rally.co.ua/heap/baraban/#browser_full
+
+http://rally.co.ua/heap/baraban/#browser1

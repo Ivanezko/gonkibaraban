@@ -109,7 +109,7 @@ function log(string, type) {
     else
         $('#log').prepend('<p class="log">'+string+'</p>');
 
-    console.log(string);
+    console.log(uuid + ':' + string);
 }
 
 function check_network() {
