@@ -23,7 +23,7 @@ $().ready(function(){
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
                 }
                 if (mode == 'full') {
-                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММССМС');
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММССмс');
                     $('#gnInputtext').css('font-size','30px');
                 }
             });
