@@ -24,7 +24,7 @@ $().ready(function(){
                 }
                 if (mode == 'full') {
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММ-ЧЧММССМС-ЧЧММ');
-                    $('#gnInputtext').css('font-size','17px');
+                    $('#gnInputtext').css('font-size','16px');
                 }
             });
     }
