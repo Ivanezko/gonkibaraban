@@ -23,8 +23,8 @@ $().ready(function(){
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ');
                 }
                 if (mode == 'full') {
-                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММ-ЧЧММССМС-ЧЧММ');
-                    $('#gnInputtext').css('font-size','15px');
+                    $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММССМС');
+                    $('#gnInputtext').css('font-size','30px');
                 }
             });
     }
@@ -80,7 +80,7 @@ $().ready(function(){
         if ((mode == 'kv') && !/\d{1,3}[^\d]\d{4}/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
-        if ((mode == 'full') && !/\d{1,3}[^\d]\d{4}[^\d]\d{4}[^\d]?[^\d]\d{8}[^\d]\d{4}/.test(d)) {
+        if ((mode == 'full') && !/\d{1,3}[^\d]\d{4}[^\d]?[^\d]\d{8}/.test(d)) {
             alert('Ошибка ввода!'); return;
         }
 
