@@ -33,8 +33,8 @@ $().ready(function(){
     setInterval(auth, auth_interval);
 
     document.addEventListener("deviceready", function() {
-        log('устройство готово');
         if (typeof device != 'undefined') uuid = device.uuid;
+        log('устройство готово');
         document.addEventListener("online", function() {
             log('есть интернет! :)');
         }, false);
