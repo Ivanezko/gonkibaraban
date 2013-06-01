@@ -8,7 +8,7 @@ $().ready(function(){
     var auth_interval = 10000;
 
     function auth() {
-        $.getJSON('http://rally.co.ua/rallies/22/site/mobileinput', {act:'auth',uuid:uuid})
+        $.getJSON('http://rally.co.ua/rallies/23/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
                 $('#gnInputtext').css('font-size','34px');
