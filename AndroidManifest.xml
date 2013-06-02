@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest>
-    <preference name="phonegap-version" value="2.7.0" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />

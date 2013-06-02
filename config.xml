@@ -6,6 +6,7 @@
         version   = "1.23.1">
 
     <name>Baraban 23.1</name>
+    <preference name="phonegap-version" value="2.7.0" />
 
     <description>
         Gonki.in.ua baraban field mobile app for people who enters the data
