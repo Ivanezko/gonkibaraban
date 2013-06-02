@@ -3,9 +3,9 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.example"
         versionCode="10"
-        version   = "1.22.1">
+        version   = "1.23.1">
 
-    <name>Baraban 22.1</name>
+    <name>Baraban 23.1</name>
 
     <description>
         Gonki.in.ua baraban field mobile app for people who enters the data
