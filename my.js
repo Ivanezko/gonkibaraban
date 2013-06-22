@@ -21,8 +21,10 @@ $().ready(function(){
     }
 
     function auth() {
-        register();
-        if (!isRegistered) return;
+        if (!isRegistered) {
+            register();
+            return;
+        }
         $.getJSON('http://rally.co.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
