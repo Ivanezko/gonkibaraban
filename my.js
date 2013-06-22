@@ -10,7 +10,6 @@ $().ready(function(){
     var auth_interval = 10000;
 
     function register() {
-        log('попытка регистрации');
         $.getJSON('http://rally.co.ua/', {act:'getRallyInfo'})
             .done(function(data) {
                 $('#title').html(data.name);
