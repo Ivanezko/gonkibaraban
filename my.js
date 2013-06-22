@@ -51,7 +51,7 @@ $().ready(function(){
 
     document.addEventListener("deviceready", function() {
         if (typeof device != 'undefined') uuid = device.uuid;
-        log('устройство готово');
+        log('устройство готово: '+uuid);
         document.addEventListener("online", function() {
             log('есть интернет! :)');
         }, false);
@@ -88,7 +88,7 @@ $().ready(function(){
     $('#gnSubmit').on('taphold', function(e) {
         var d = $('#gnInputtext').val();
 
-        if (mode == 'finish' && !/\d{1,3}[^\d]\d{8}/.test(d)) {
+        if (mode == 'finish' && !(/\d{1,3}[^\d]\d{8}/.test(d) || /\d{4}> \d{2}:\d{2}:\d{2},\d{2} .{2}/.test(d)) ) {
             alert('Ошибка ввода!'); return;
         }
         if ((mode == 'start') && !/\d{1,3}[^\d]\d{4}[^\d]?/.test(d)) {
