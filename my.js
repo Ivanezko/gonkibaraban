@@ -102,7 +102,7 @@ $().ready(function(){
         }
 
         var info = {result:d, uuid:uuid};
-        $.getJSON('http://rally.co.ua/rallies/23/site/mobileinput', info)
+        $.getJSON('http://rally.co.ua/rallies/' + rallyId + '/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
                     log(data.result, 'data');
