@@ -10,6 +10,7 @@ $().ready(function(){
     var auth_interval = 10000;
 
     function register() {
+        log('попытка регистрации');
         $.getJSON('http://gonki.in.ua', {act:'getRallyInfo'})
             .done(function(data) {
                 $('#title').html(data.name);
