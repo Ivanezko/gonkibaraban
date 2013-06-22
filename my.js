@@ -2,13 +2,26 @@
 
 var uuid = document.location.hash.replace('#','');
 var mode = '';
+var rallyId = 0;
+var isRegistered = false;
 $().ready(function(){
     log('приложение запущено');
 
     var auth_interval = 10000;
 
+    function register() {
+        $.getJSON('http://gonki.in.ua', {act:'getRallyInfo'})
+            .done(function(data) {
+                $('#title').html(data.name);
+                rallyId = data.id;
+                isRegistered = true;
+                log('rally id:' + rallyId);
+            });
+    }
+
     function auth() {
-        $.getJSON('http://rally.co.ua/rallies/23/site/mobileinput', {act:'auth',uuid:uuid})
+        if (!isRegistered) return;
+        $.getJSON('http://rally.co.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
                 $('#gnInputtext').css('font-size','34px');
