@@ -11,7 +11,7 @@ $().ready(function(){
 
     function register() {
         log('попытка регистрации');
-        $.getJSON('http://rally.co.ua', {act:'getRallyInfo'})
+        $.getJSON('http://rally.co.ua/', {act:'getRallyInfo'})
             .done(function(data) {
                 $('#title').html(data.name);
                 rallyId = data.id;
