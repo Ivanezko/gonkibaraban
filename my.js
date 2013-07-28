@@ -11,7 +11,7 @@ $().ready(function(){
     var auth_interval = 10000;
 
     function register() {
-        $.getJSON('http://rally.co.ua/', {act:'getRallyInfo'})
+        $.getJSON('http://gonki.in.ua/', {act:'getRallyInfo'})
             .done(function(data) {
                 $('#title').html(data.name);
                 rallyId = data.id;
@@ -25,7 +25,7 @@ $().ready(function(){
             register();
             return;
         }
-        $.getJSON('http://rally.co.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
+        $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
                 $('#gnInputtext').css('font-size','34px');
@@ -102,7 +102,7 @@ $().ready(function(){
         }
 
         var info = {result:d, uuid:uuid};
-        $.getJSON('http://rally.co.ua/rallies/' + rallyId + '/site/mobileinput', info)
+        $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
                     log(data.result, 'data');
