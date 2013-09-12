@@ -17,6 +17,10 @@ $().ready(function(){
                 rallyId = data.id;
                 isRegistered = true;
                 log('rally id:' + rallyId);
+            })
+            .fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ', ' + error;
+                log( "Request Failed: " + err);
             });
     }
 
