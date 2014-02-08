@@ -19,7 +19,6 @@
     <access origin="http://rally.co.ua" />
 
     <plugin name="Battery" value="org.apache.cordova.BatteryListener" />
-    <plugin name="Device" value="org.apache.cordova.Device" />
     <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
-
+    <gap:plugin name="org.apache.cordova.device" />
 </widget>
