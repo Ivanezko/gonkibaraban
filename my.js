@@ -16,11 +16,11 @@ $().ready(function(){
                 $('#title').html(data.name);
                 rallyId = data.id;
                 isRegistered = true;
-                log('rally id:' + rallyId);
+                log('register ok:' + rallyId);
             })
             .fail(function( jqxhr, textStatus, error ) {
                 var err = textStatus + ', ' + error;
-                log( "Request Failed: " + err);
+                log( "Register error: " + err);
             });
     }
 
@@ -29,11 +29,13 @@ $().ready(function(){
             register();
             return;
         }
+        log( "Auth try with uid: " + uuid);
         $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
                 $('#gnInputtext').css('font-size','34px');
                 mode = data.m;
+                log( "Auth ok: " + mode);
                 if (mode == 'finish') {
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
                 }
@@ -47,6 +49,9 @@ $().ready(function(){
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММ-ЧЧММССмс');
                     $('#gnInputtext').css('font-size','30px');
                 }
+            }).fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ', ' + error;
+                log( "Auth error: " + err);
             });
     }
 
