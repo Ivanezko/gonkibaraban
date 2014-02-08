@@ -6,7 +6,7 @@ var rallyId = 0;
 var isRegistered = false;
 $().ready(function(){
     log('приложение запущено');
-    log('version: 24.2');
+    log('version: 2014.02.08.1');
 
     var auth_interval = 10000;
 
