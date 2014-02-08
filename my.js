@@ -29,13 +29,13 @@ $().ready(function(){
             register();
             return;
         }
-        log( "Auth try with uid: " + uuid);
+        //log( "Auth try with uid: " + uuid);
         $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', {act:'auth',uuid:uuid})
             .done(function(data) {
                 $('#gnPname').html(data.n);
                 $('#gnInputtext').css('font-size','34px');
                 mode = data.m;
-                log( "Auth ok: " + mode);
+                //log( "Auth ok: " + mode);
                 if (mode == 'finish') {
                     $('#gnInputtext').attr('placeholder', 'ББ-ЧЧММССмс');
                 }
