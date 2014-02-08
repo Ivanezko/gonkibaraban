@@ -16,7 +16,7 @@
         Ivan Eidemiller
     </author>
 
-    <access origin="http://rally.co.ua" />
+    <access origin="*" />
 
     <plugin name="Battery" value="org.apache.cordova.BatteryListener" />
     <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
