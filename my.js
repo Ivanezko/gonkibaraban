@@ -73,16 +73,13 @@ document.addEventListener('onSMSArrive', function(e){
  info = JSON.stringify(info);
   log('test2');
   
-        var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-
-       sms.send("+380631885060", "qweqwe", options, function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
- 
+  console.log(window.cordova);
+  log('test22');
+  console.log(plugins);
+  log('test222');
+  
+SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+        
     log('test3');
         
         if (typeof device != 'undefined') uuid = device.uuid;
@@ -121,7 +118,7 @@ document.addEventListener('onSMSArrive', function(e){
     // my events asdsa
 
     $('#gnSubmit').on('taphold', function(e) {
-        log('sebding>>>');
+        //log('sebding>>>');
         var d = $('#gnInputtext').val();
 
         if (mode == 'finish' && !(/\d{1,3}[^\d]\d{8}/.test(d) || /\d{4}> \d{2}:\d{2}:\d{2},\d{2} .{2}/.test(d)) ) {
@@ -139,7 +136,7 @@ document.addEventListener('onSMSArrive', function(e){
 
         var info = {result:d, uuid:uuid};
         
-        SMS.sendSMS("+380631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+        //SMS.sendSMS("+380631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
         $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', info)
             .done(function(data) {
