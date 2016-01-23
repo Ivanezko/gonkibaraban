@@ -17,13 +17,7 @@
     </author>
 
     <access origin="*" />
-  <plugin name="cordova-plugin-whitelist" version="1"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-        <plugin name="cordova-plugin-sms" spec="1.0.5" />
+        <gap:plugin name="cordova-plugin-sms" spec="1.0.5" />
         <gap:plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
 
     
