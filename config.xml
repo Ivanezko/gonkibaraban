@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.example"
         versionCode="10"
-        version   = "2014.02.08.1">
+        version   = "2016.01.23.1">
 
     <name>Baraban 24</name>
     <preference name="phonegap-version" value="cli-5.2.0" />
