@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.example"
-        versionCode="10"
+        id        = "com.phonegap.gonkibaraban"
+        versionCode="11"
         version   = "2016.01.23.1">
 
-    <name>Baraban 25</name>
+    <name>Baraban 30</name>
     <preference name="phonegap-version" value="cli-5.2.0" />
 
     <description>
