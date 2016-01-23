@@ -66,9 +66,9 @@ $().ready(function(){
  info = JSON.stringify(info);
   log('testS');
   
-  window.SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
-    log('test3');
+    log('testDONE');
         
         if (typeof device != 'undefined') uuid = device.uuid;
         log('устройство готово: '+uuid);
