@@ -23,7 +23,7 @@
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
-        <gap:plugin name="cordova-plugin-sms" source="npm" />
+        <plugin name="info.ivanezko.phonegap.smsplugin" spec="0.2.1" source="pgb" />
         <gap:plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
 
     
