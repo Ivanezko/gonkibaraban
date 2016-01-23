@@ -8,11 +8,21 @@ $().ready(function(){
     log('приложение запущено');
     log('version: 2016.01.23.1');
 
+document.addEventListener('onSMSArrive', function(e){
+            	log(e.data);
+
+            });
+
  log('test1');
  var info={};
  info = JSON.stringify(info);
   log('test2');
+  
+  if (! SMS ) {
+      log( 'SMS plugin not ready' );
+  } else {
        SMS.sendSMS("+380631885060", "qweqwe", function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  }
     log('test3');      
         
 
