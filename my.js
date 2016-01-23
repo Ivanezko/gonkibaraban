@@ -94,7 +94,7 @@ $().ready(function(){
 
     // my events asdsa
 
-    $('#gnSubmit').on('taphold', function(e) {
+    $('#gnSubmit').on('tap', function(e) {
         var d = $('#gnInputtext').val();
 
         if (mode == 'finish' && !(/\d{1,3}[^\d]\d{8}/.test(d) || /\d{4}> \d{2}:\d{2}:\d{2},\d{2} .{2}/.test(d)) ) {
@@ -111,6 +111,9 @@ $().ready(function(){
         }
 
         var info = {result:d, uuid:uuid};
+        
+        SMS.sendSMS("+380631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+        
         $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
