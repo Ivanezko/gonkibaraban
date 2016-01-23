@@ -64,11 +64,9 @@ $().ready(function(){
          log('test1');
  var info={};
  info = JSON.stringify(info);
-  log('testA');
-  console.log(window.cordova.plugins.SMS);
   log('testS');
   
-  window.cordova.plugins.SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  window.SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
     log('test3');
         
