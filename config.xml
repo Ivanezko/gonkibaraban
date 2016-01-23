@@ -18,8 +18,8 @@
 
     <access origin="*" />
 
-        <plugin name="com.cordova.plugins.sms" spec="0.1.2" source="pgb" />
-        <plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
+        <gap:plugin name="com.cordova.plugins.sms" spec="0.1.2" source="pgb" />
+        <gap:plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
 
     
 </widget>
