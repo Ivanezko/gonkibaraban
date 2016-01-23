@@ -1,6 +1,6 @@
 // Put your custom code here
 
-var sms = cordova.require("com.rjfun.cordova.sms")
+//var sms = cordova.require("com.rjfun.cordova.sms")
 
 var uuid = document.location.hash.replace('#','');
 var mode = '';
@@ -67,8 +67,18 @@ $().ready(function(){
  var info={};
  info = JSON.stringify(info);
   log('testS');
+  
+          var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+  sms.send("0631885060", JSON.stringify(info), options, function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  
   //sms.send("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-  sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  //sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
     log('testDONE');
         
