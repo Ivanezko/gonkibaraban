@@ -7,14 +7,7 @@ var isRegistered = false;
 $().ready(function(){
     log('приложение запущено');
     log('version: 2016.01.23.1');
-
-document.addEventListener('onSMSArrive', function(e){
-            	log(e.data);
-
-            });
-
-      
-        
+ 
 
     var auth_interval = 10000;
 
@@ -71,14 +64,11 @@ document.addEventListener('onSMSArrive', function(e){
          log('test1');
  var info={};
  info = JSON.stringify(info);
-  log('test2');
+  log('testA');
+  console.log(window.cordova.plugins.SMS);
+  log('testS');
   
-  console.log(window.cordova);
-  log('test22');
-  console.log(window.cordova.sms);
-  log('test222');
-  
-SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  window.cordova.plugins.SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
     log('test3');
         
