@@ -1,7 +1,5 @@
 // Put your custom code here
 
-var sms = cordova.require("com.cordova.plugins.sms ")
-
 var uuid = document.location.hash.replace('#','');
 var mode = '';
 var rallyId = 0;
