@@ -18,11 +18,16 @@ document.addEventListener('onSMSArrive', function(e){
  info = JSON.stringify(info);
   log('test2');
   
-  if (! SMS ) {
-      log( 'SMS plugin not ready' );
-  } else {
-       SMS.sendSMS("+380631885060", "qweqwe", function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-  }
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+       sms.send("+380631885060", "qweqwe", options, function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+ 
     log('test3');      
         
 
