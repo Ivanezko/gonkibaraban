@@ -19,7 +19,6 @@
     <access origin="*" />
 
         <gap:plugin name="cordova-plugin-sms" source="npm" />
-        <gap:plugin name="org.apache.cordova.device" />
         <plugin name="Battery" spec="n/a" />
         <plugin name="NetworkStatus" spec="n/a" />
         <plugin name="org.apache.cordova.device" source="pgb" spec="0.2.3" />
