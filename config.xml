@@ -22,7 +22,7 @@
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/
+  <allow-intent href="mailto:*"/>
         <gap:plugin name="cordova-plugin-sms" source="npm" />
         <gap:plugin name="org.apache.cordova.device" source="pgb" spec="0.3.0" />
 
