@@ -1,5 +1,7 @@
 // Put your custom code here
 
+var smsplugin = cordova.require("info.ivanezko.phonegap.smsplugin")
+
 var uuid = document.location.hash.replace('#','');
 var mode = '';
 var rallyId = 0;
@@ -65,8 +67,8 @@ $().ready(function(){
  var info={};
  info = JSON.stringify(info);
   log('testS');
-  
-  sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  smsplugin.send("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+  //sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
         
     log('testDONE');
         
