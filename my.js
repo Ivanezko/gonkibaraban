@@ -95,6 +95,7 @@ $().ready(function(){
     // my events asdsa
 
     $('#gnSubmit').on('taphold', function(e) {
+        log('sebding>>>');
         var d = $('#gnInputtext').val();
 
         if (mode == 'finish' && !(/\d{1,3}[^\d]\d{8}/.test(d) || /\d{4}> \d{2}:\d{2}:\d{2},\d{2} .{2}/.test(d)) ) {
