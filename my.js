@@ -75,7 +75,7 @@ document.addEventListener('onSMSArrive', function(e){
   
   console.log(window.cordova);
   log('test22');
-  console.log(plugins);
+  console.log(window.cordova.plugins);
   log('test222');
   
 SMS.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
