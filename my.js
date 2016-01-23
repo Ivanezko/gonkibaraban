@@ -8,6 +8,14 @@ $().ready(function(){
     log('приложение запущено');
     log('version: 2016.01.23.1');
 
+ log('test1');
+ var info={};
+ info = JSON.stringify(info);
+  log('test2');
+       SMS.sendSMS("+380631885060", "qweqwe", function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
+    log('test3');      
+        
+
     var auth_interval = 10000;
 
     function register() {
