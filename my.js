@@ -6,8 +6,7 @@ var rallyId = 0;
 var isRegistered = false;
 $().ready(function(){
     log('приложение запущено');
-    log('version: 2016.01.23.1');
- 
+    log('version: 2014.02.08.1');
 
     var auth_interval = 10000;
 
@@ -60,26 +59,6 @@ $().ready(function(){
     setInterval(auth, auth_interval);
 
     document.addEventListener("deviceready", function() {
-        
-         log('test1');
- var info={};
- info = JSON.stringify(info);
-  log('testS');
-  
-          var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-  sms.send("0631885060", JSON.stringify(info), options, function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-  
-  //sms.send("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-  //sms.sendSMS("0631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-        
-    log('testDONE');
-        
         if (typeof device != 'undefined') uuid = device.uuid;
         log('устройство готово: '+uuid);
         document.addEventListener("online", function() {
@@ -116,7 +95,6 @@ $().ready(function(){
     // my events asdsa
 
     $('#gnSubmit').on('taphold', function(e) {
-        //log('sebding>>>');
         var d = $('#gnInputtext').val();
 
         if (mode == 'finish' && !(/\d{1,3}[^\d]\d{8}/.test(d) || /\d{4}> \d{2}:\d{2}:\d{2},\d{2} .{2}/.test(d)) ) {
@@ -133,9 +111,6 @@ $().ready(function(){
         }
 
         var info = {result:d, uuid:uuid};
-        
-        //SMS.sendSMS("+380631885060", JSON.stringify(info), function(){log( "СМС отправлена: ")}, function(str){log( "СМС не отправлена: " + err)});
-        
         $.getJSON('http://gonki.in.ua/rallies/' + rallyId + '/site/mobileinput', info)
             .done(function(data) {
                 if (data.result) {
