@@ -18,6 +18,5 @@
 
     <access origin="*" />
 
-    <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
     <gap:plugin name="org.apache.cordova.device" />
 </widget>
