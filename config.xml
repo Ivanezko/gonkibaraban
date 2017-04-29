@@ -6,7 +6,7 @@
         version   = "2014.02.08.1">
 
     <name>Baraban 24</name>
-    <preference name="phonegap-version" value="cli-5.2.0" />
+    <preference name="phonegap-version" value="cli-6.5.0" />
 
     <description>
         Gonki.in.ua baraban field mobile app for people who enters the data
@@ -18,5 +18,6 @@
 
     <access origin="*" />
 
-    <gap:plugin name="org.apache.cordova.device" />
+    <!-- <gap:plugin name="org.apache.cordova.device" /> -->
+    <plugin name="cordova-plugin-device" spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 </widget>
